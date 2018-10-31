@@ -36,15 +36,23 @@ class boolean {
             array[position / 8] &= ~(1<<(position%8));
         }
         bool operator[](int position) {
-            // TODO
+            array[position/8] &= 1 << (position%8);
+            if(array[position/8] == 0)
+            {
+                return false;
+            }
+            else return true;
         }
     
-        void clear() {    
-            // TODO
+        void clear() {
+            for(int i = 0; i<size; i++)
+            {
+                array[i]=0;
+            }
         }
              
         ~boolean() {
-            // TODO
+            delete[] array;
         }
 };
 
